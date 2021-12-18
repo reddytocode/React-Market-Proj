@@ -9,7 +9,9 @@ import CartComponent from "./CartComponent";
 
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
+    const productsInCart = props.productsInCart
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -26,7 +28,7 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Shopping page
                     </Typography>
-                    <CartComponent/>
+                    <CartComponent productsInCart={productsInCart}/>
                 </Toolbar>
             </AppBar>
         </Box>

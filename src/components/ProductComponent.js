@@ -4,9 +4,24 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import {useState} from "react";
 
 export default function ProductComponent(props) {
     const product = props.product
+    const [productIsInCart, setProductIsInCart] = useState(false)
+    const onAddProductToCart = props.onAddProductToCart
+    const onRemoveProductFromCart = props.onRemoveProductFromCart
+
+    const onAdd = () => {
+        setProductIsInCart(true)
+        onAddProductToCart()
+    }
+
+    const onRemove = () => {
+        setProductIsInCart(false)
+        onRemoveProductFromCart()
+    }
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -25,9 +40,14 @@ export default function ProductComponent(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Add to cart
-                </Button>
+                {
+                    productIsInCart ? <Button size="small" color="primary" onClick={onRemove}>
+                        Remove from cart
+                    </Button> : <Button size="small" variant="contained" onClick={onAdd}>
+                        Add to cart
+                    </Button>
+                }
+
             </CardActions>
         </Card>
     );

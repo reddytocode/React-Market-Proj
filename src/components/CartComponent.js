@@ -1,10 +1,13 @@
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CartComponent = () => {
+const CartComponent = (props) => {
+
+    const productsInCart = props.productsInCart
+
     return <>
         <ShoppingCartIcon/>
-        <h3>9</h3>
+        <h3>{productsInCart}</h3>
     </>
 }
 
