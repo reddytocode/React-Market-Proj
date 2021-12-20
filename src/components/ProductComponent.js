@@ -5,21 +5,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {decrement, increment} from "../features/counter/counterSlice";
 
 export default function ProductComponent(props) {
     const product = props.product
     const [productIsInCart, setProductIsInCart] = useState(false)
-    const onAddProductToCart = props.onAddProductToCart
-    const onRemoveProductFromCart = props.onRemoveProductFromCart
+    const dispatch = useDispatch()
+
 
     const onAdd = () => {
         setProductIsInCart(true)
-        onAddProductToCart()
+        dispatch(increment())
     }
 
     const onRemove = () => {
         setProductIsInCart(false)
-        onRemoveProductFromCart()
+        dispatch(decrement())
     }
 
     return (

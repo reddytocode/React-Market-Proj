@@ -1,9 +1,10 @@
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {useSelector} from "react-redux";
 
 const CartComponent = (props) => {
 
-    const productsInCart = props.productsInCart
+    const productsInCart = useSelector(state => state.counter.value)
 
     return <>
         <ShoppingCartIcon/>
