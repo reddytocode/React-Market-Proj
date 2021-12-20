@@ -1,7 +1,7 @@
 # Applying Redux
 
 ## Source
-[Link to the source](https://medium.com/@paulfitzgerald_11524/quick-and-easy-guide-to-implementing-redux-in-a-react-app-5072e3a81b7a)
+[Link to the source](https://redux.js.org/tutorials/quick-start)
 
 - [ ] install redux and react-redux
 - [ ] create a reducer.
