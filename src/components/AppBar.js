@@ -6,11 +6,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CartComponent from "./CartComponent";
+import {Link} from "react-router-dom";
 
 
 
-export default function ButtonAppBar(props) {
-    const productsInCart = props.productsInCart
+export default function ButtonAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -25,10 +25,12 @@ export default function ButtonAppBar(props) {
                     >
                         <MenuIcon />
                     </IconButton>
+                    <Link to="/products">Products</Link>
+                    <Link to="/products/add"> Add Product</Link>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Shopping page
                     </Typography>
-                    <CartComponent productsInCart={productsInCart}/>
+                    <CartComponent/>
                 </Toolbar>
             </AppBar>
         </Box>

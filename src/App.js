@@ -1,25 +1,23 @@
 import ButtonAppBar from "./components/AppBar";
 import ProductListComponent from "./components/ProductListComponent";
 import {useState} from "react";
+import { Routes, Route } from "react-router-dom";
+import UsersPage from "./routes/users";
+import ProfilesPage from "./routes/profiles";
+import CreateProduct from "./CreateProduct";
+
 
 
 function App() {
-    const [productsInCart, setProductsInCart] = useState(0)
-
-    const onAddProductToCart = () => {
-        setProductsInCart(productsInCart + 1)
-    }
-    const onRemoveProductFromCart = () => {
-        setProductsInCart(productsInCart - 1)
-    }
-
     return (
     <>
-        <ButtonAppBar productsInCart={productsInCart}/>
-        <ProductListComponent
-            onAddProductToCart={onAddProductToCart}
-            onRemoveProductFromCart={onRemoveProductFromCart}
-        />
+        <ButtonAppBar/>
+        <Routes>
+            <Route path="/" element={<UsersPage />} />
+            <Route path="about" element={<ProfilesPage />} />
+            <Route path="products" element={<ProductListComponent />} />
+            <Route path="products/add" element={<CreateProduct />} />
+        </Routes>
     </>
   );
 }
